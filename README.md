@@ -51,7 +51,4 @@ Raw results: `results.md` (hand-written set), `results_external.md`, `results_in
 - `test_messages_inbox.json`: genuine messages from the author's own inbox, anonymised.
 - Built with [Ollama](https://ollama.com) and Google's Gemma 3 open-weight model.
 
-## Challenge notes
-- Started and built during the challenge window (2 to 5 October 2026).
-- An AI assistant (Claude) helped with planning and code.
-- Commits made after the deadline (5 October 2026, 12:29 PM IST): none. TODO: update this line if you commit later.
+
