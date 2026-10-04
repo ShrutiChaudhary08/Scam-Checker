@@ -13,4 +13,7 @@ if st.button("Check karein") and msg.strip():
     st.markdown(f"### :{colour}[{r['verdict']}]")
     st.write(r["reason"])
     st.write("**Ab kya karein:** " + r["action"])
+    if r["verdict"] == "SAFE":
+        st.info("SAFE ka matlab sirf itna hai ki yeh message scam jaisa nahi dikha. "
+                "Link kholne, OTP dene ya paise bhejne se pehle phir bhi bank se confirm karein.")
     st.caption("Yeh sirf madad hai, guarantee nahi. Paise ka mamla ho to card par likhe number par bank ko call karein.")
