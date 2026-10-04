@@ -1,0 +1,98 @@
+[
+ {
+  "text": "Dear customer, your SBI account will be blocked today. Update your KYC immediately: http://sbi-kyc-update.example/login",
+  "label": "SCAM"
+ },
+ {
+  "text": "Aapka PAN card update nahi hua hai. Aaj raat tak link par click karke update karein warna account band ho jayega. bit.ly/pan-upd8",
+  "label": "SCAM"
+ },
+ {
+  "text": "This is Mumbai Cyber Police. A parcel in your name has illegal items. You are under digital arrest. Stay on video call and do not tell anyone.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Congratulations! You won Rs 25,00,000 in the KBC lottery. Send Rs 5,000 processing fee to claim your prize.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Part time job: earn Rs 3000 daily by liking YouTube videos. Join our Telegram group now. No experience needed.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Your electricity connection will be cut tonight at 9:30 PM because last month's bill is unpaid. Call 98XXXXXX01 immediately.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Sir I sent you Rs 10,000 by mistake on UPI. Please approve the collect request to return it.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Your courier is held at customs. Pay Rs 49 fee at http://track-parcel.example to release it today.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Papa mera phone kharab ho gaya hai, ye naya number hai. Abhi Rs 15,000 turant bhej do, urgent hai, baad mein samjhaunga.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Your Aadhaar is linked to illegal activity. CBI officer will call you. Do not disconnect. Share OTP to verify identity.",
+  "label": "SCAM"
+ },
+ {
+  "text": "Dear user, your Jio SIM will be deactivated in 2 hours. Download this app to verify: http://jio-verify.example/app.apk",
+  "label": "SCAM"
+ },
+ {
+  "text": "Income tax refund of Rs 18,450 approved. Enter your card number and CVV at http://it-refund.example to receive it.",
+  "label": "SCAM"
+ },
+ {
+  "text": "123456 is your OTP for login to ShopKart. Do not share this OTP with anyone. Valid for 10 minutes.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Rs 450.00 debited from A/c XX1234 on 03-Oct at ABC Store via UPI. If not you, call the number on the back of your card.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Your Amazon order has been shipped and will arrive on Tuesday.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Your Jio recharge of Rs 299 was successful. Validity till 02-Nov. Thank you.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Your electricity bill for September is generated. Amount Rs 1,240. Due date 15-Oct. Pay through your usual app or at the office.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Parent-teacher meeting is on Saturday at 10 am in school hall. Please attend.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Reminder: Dr. Sharma's clinic appointment tomorrow at 11:30 AM.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Your train departs New Delhi at 16:25 from platform 5. Have a safe journey.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Beta aaj dinner mein kya khaoge? Main paneer bana rahi hoon. Jaldi ghar aana.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Your gas cylinder booking is confirmed. Delivery expected within 2 days. Pay the delivery person only after delivery.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Happy birthday Rinku! Cake kaat liya? Photos bhejna.",
+  "label": "SAFE"
+ },
+ {
+  "text": "Your credit card statement of Rs 5,200 is ready. Minimum due Rs 260 by 20-Oct. View it in the official app.",
+  "label": "SAFE"
+ }
+]

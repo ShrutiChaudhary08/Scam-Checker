@@ -1,0 +1,32 @@
+{
+  "gemma3": {
+    "total": 7,
+    "correct": 6,
+    "accuracy": 85.7,
+    "false_alarms": 0,
+    "missed_scams": 1,
+    "unknown": 0,
+    "avg_seconds": 19.39,
+    "wrong": [
+      {
+        "text": "BankFive Alerts: Did you initiate the following? BEST BUY, $537.98 YES or NO. Reply HELP for help. Reply STOP to end messages. Msg&Data; rates may apply.",
+        "label": "SCAM",
+        "source": "BankFive, 'Scam Alert: Phony Fraud Texts'",
+        "verdict": "SAFE",
+        "reason": "Yeh bank ki alert hai, jisme paisa transfer hone ki jaankari hai aur reply ke liye option hai.",
+        "action": "Reply STOP likh kar message ko end kar do.",
+        "seconds": 18.87
+      }
+    ]
+  },
+  "gemma3:1b": {
+    "total": 7,
+    "correct": 7,
+    "accuracy": 100.0,
+    "false_alarms": 0,
+    "missed_scams": 0,
+    "unknown": 0,
+    "avg_seconds": 8.51,
+    "wrong": []
+  }
+}

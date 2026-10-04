@@ -1,0 +1,64 @@
+{
+  "gemma3": {
+    "total": 24,
+    "correct": 23,
+    "accuracy": 95.8,
+    "false_alarms": 1,
+    "missed_scams": 0,
+    "unknown": 0,
+    "avg_seconds": 18.1,
+    "wrong": [
+      {
+        "text": "123456 is your OTP for login to ShopKart. Do not share this OTP with anyone. Valid for 10 minutes.",
+        "label": "SAFE",
+        "verdict": "SCAM",
+        "reason": "Yeh OTP maang raha hai, jo ek bahut hi suspicious sign hai. ShopKart kabhi OTP nahi maangta.",
+        "action": "OTP share karna mat, aur immediately ShopKart ki official website par check karo.",
+        "seconds": 18.01
+      }
+    ]
+  },
+  "gemma3:1b": {
+    "total": 24,
+    "correct": 20,
+    "accuracy": 83.3,
+    "false_alarms": 4,
+    "missed_scams": 0,
+    "unknown": 0,
+    "avg_seconds": 7.91,
+    "wrong": [
+      {
+        "text": "123456 is your OTP for login to ShopKart. Do not share this OTP with anyone. Valid for 10 minutes.",
+        "label": "SAFE",
+        "verdict": "SCAM",
+        "reason": "This is a phishing attempt to steal your OTP. Never share it with anyone.",
+        "action": "Link par click mat karo. Card par likhe number se company ko call karke poochho.",
+        "seconds": 7.74
+      },
+      {
+        "text": "Rs 450.00 debited from A/c XX1234 on 03-Oct at ABC Store via UPI. If not you, call the number on the back of your card.",
+        "label": "SAFE",
+        "verdict": "SCAM",
+        "reason": "This is a phishing attempt. They are trying to steal your money. Don't respond to any requests.",
+        "action": "Call ABC Store directly to verify the transaction.",
+        "seconds": 7.86
+      },
+      {
+        "text": "Beta aaj dinner mein kya khaoge? Main paneer bana rahi hoon. Jaldi ghar aana.",
+        "label": "SAFE",
+        "verdict": "SUSPICIOUS",
+        "reason": "Yeh message 'beta' (urgent) ka hai aur 'jaldi ghar aana' (quickly home) ka. Iska problem hai, iska problem.",
+        "action": "Samajh nahi aaya. Link, OTP ya paisa mat do; kisi bharosemand insaan se poochho.",
+        "seconds": 8.08
+      },
+      {
+        "text": "Happy birthday Rinku! Cake kaat liya? Photos bhejna.",
+        "label": "SAFE",
+        "verdict": "SUSPICIOUS",
+        "reason": "Happy birthday message, but asking to photos. Isko check karna zarurat hai.",
+        "action": "Samajh nahi aaya. Link, OTP ya paisa mat do; kisi bharosemand insaan se poochho.",
+        "seconds": 7.32
+      }
+    ]
+  }
+}

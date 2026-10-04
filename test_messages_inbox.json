@@ -1,0 +1,20 @@
+[
+ {
+  "text": "Ramaiah Institute of Science & Management - BTech in CSE,ECE,Aero & VLSI Design Admissions Open.AICTE & UGC Approved.Upto 80% Scholarships.90XXXXXXXX IES.",
+  "label": "SAFE",
+  "source": "own inbox",
+  "note": "unsolicited promotional SMS; ambiguous, label chosen by the author"
+ },
+ {
+  "text": "Alert: On receiving any unwanted SMS , please complain by calling 1909 or send SMS to 1909 in format 'SMS Content, Sender No, dd/mm/yy' or visit bit.ly/xxxxxxx to report through Airtel Thanks App. Thanks",
+  "label": "SAFE",
+  "source": "own inbox",
+  "note": "genuine operator notice; contains a shortened link"
+ },
+ {
+  "text": "Dear UPI user A/C XXXX debited by 35.00 on date 13Sep26 trf to Archaeological S Refno XXXXXXXXXXXX If not u? call-1800111109 for other services-18001234-SBI",
+  "label": "SAFE",
+  "source": "own inbox",
+  "note": "genuine SBI UPI debit alert"
+ }
+]

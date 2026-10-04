@@ -1,0 +1,37 @@
+[
+ {
+  "text": "WELLS FARGO: A purchase of $1168.89 at WALMART#129 in LOS ANGELES CA on debit 4**** Not you? reply \"CANCEL\" and follow the link to cancel. http://wells-cancel.example",
+  "label": "SCAM",
+  "source": "Berkeley Lab IT, 'Banking Text Scam' (as shown in search results)"
+ },
+ {
+  "text": "(Citibank) We detected unusual activity in your account. please follow this link to verify your identity. https://citi-verify.example",
+  "label": "SCAM",
+  "source": "Aura, 'How To Spot a Fake Bank Text'"
+ },
+ {
+  "text": "Dear customer your SBI bank account has been suspended for KYC please complete your KYC 10 min click here link http://sbi-kyc-verify.example/sbibank",
+  "label": "SCAM",
+  "source": "Net Protector Antivirus, fake SBI KYC texts"
+ },
+ {
+  "text": "BankFive Alerts: Did you initiate the following? BEST BUY, $537.98 YES or NO. Reply HELP for help. Reply STOP to end messages. Msg&Data; rates may apply.",
+  "label": "SCAM",
+  "source": "BankFive, 'Scam Alert: Phony Fraud Texts'"
+ },
+ {
+  "text": "YourBank Security: Did you authorize the following activity for your Online ID me**** at 11:22 AM ET, 1/30? Sign in to Online Banking. Location: Birmingham,AL,United States. If you authorized the activity, Reply YES; if not, reply NO. To opt out of fraud text Alerts, reply STOP",
+  "label": "SCAM",
+  "source": "Doing More Today, '5 Signs of a Scam Message'"
+ },
+ {
+  "text": "POSTOFFICE: We are sorry your parcel cannot be delivered due to an unpaid shipping fee. Visit: https://postoffice-redelivery.example to book a redelivery.",
+  "label": "SCAM",
+  "source": "caption not visible in screenshot"
+ },
+ {
+  "text": "From WELLS FARGO BANK: Did you attempt $202.08 on debit card #4852 HOME DEPOT 205 CITY C? Reply YES/NO/HELP.",
+  "label": "SCAM",
+  "source": "caption not visible in screenshot (page about Wells Fargo impersonation scams)"
+ }
+]

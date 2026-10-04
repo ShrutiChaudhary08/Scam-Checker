@@ -1,0 +1,74 @@
+{
+  "gemma3": {
+    "total": 3,
+    "correct": 1,
+    "accuracy": 33.3,
+    "false_alarms": 2,
+    "missed_scams": 0,
+    "unknown": 0,
+    "avg_seconds": 21.1,
+    "wrong": [
+      {
+        "text": "Ramaiah Institute of Science & Management - BTech in CSE,ECE,Aero & VLSI Design Admissions Open.AICTE & UGC Approved.Upto 80% Scholarships.90XXXXXXXX IES.",
+        "label": "SAFE",
+        "source": "own inbox",
+        "note": "unsolicited promotional SMS; ambiguous, label chosen by the author",
+        "verdict": "SUSPICIOUS",
+        "reason": "Yeh message ek college se hai lekin isme IES number hai, jo scam mein istemal hota hai. College ki website par number check karo.",
+        "action": "College ki website par number verify karo, agar number nahi hai toh message ignore karo.",
+        "seconds": 24.49
+      },
+      {
+        "text": "Dear UPI user A/C XXXX debited by 35.00 on date 13Sep26 trf to Archaeological S Refno XXXXXXXXXXXX If not u? call-1800111109 for other services-18001234-SBI",
+        "label": "SAFE",
+        "source": "own inbox",
+        "note": "genuine SBI UPI debit alert",
+        "verdict": "SCAM",
+        "reason": "Yeh message anjaan bank name aur trf details deta hai, jo asli bank message mein nahi hote. OTP maangne ki bhi koi baat nahi hai.",
+        "action": "Bank ke official website par account details check karo aur call number par call mat karo.",
+        "seconds": 20.1
+      }
+    ]
+  },
+  "gemma3:1b": {
+    "total": 3,
+    "correct": 0,
+    "accuracy": 0.0,
+    "false_alarms": 3,
+    "missed_scams": 0,
+    "unknown": 0,
+    "avg_seconds": 9.32,
+    "wrong": [
+      {
+        "text": "Ramaiah Institute of Science & Management - BTech in CSE,ECE,Aero & VLSI Design Admissions Open.AICTE & UGC Approved.Upto 80% Scholarships.90XXXXXXXX IES.",
+        "label": "SAFE",
+        "source": "own inbox",
+        "note": "unsolicited promotional SMS; ambiguous, label chosen by the author",
+        "verdict": "SCAM",
+        "reason": "This is a phishing attempt. Ramaiah Institute is likely a scam trying to steal your personal information. Don't click any links or provide any details.",
+        "action": "Don't click any links. Report this to the authorities.",
+        "seconds": 10.79
+      },
+      {
+        "text": "Alert: On receiving any unwanted SMS , please complain by calling 1909 or send SMS to 1909 in format 'SMS Content, Sender No, dd/mm/yy' or visit bit.ly/xxxxxxx to report through Airtel Thanks App. Thanks",
+        "label": "SAFE",
+        "source": "own inbox",
+        "note": "genuine operator notice; contains a shortened link",
+        "verdict": "SUSPICIOUS",
+        "reason": "Yeh message unwanted SMS ki notification ki isht garam hai. Isht message ki notification ko report karne ki zaroorat hai.",
+        "action": "Samajh nahi aaya. Link, OTP ya paisa mat do; kisi bharosemand insaan se poochho.",
+        "seconds": 8.02
+      },
+      {
+        "text": "Dear UPI user A/C XXXX debited by 35.00 on date 13Sep26 trf to Archaeological S Refno XXXXXXXXXXXX If not u? call-1800111109 for other services-18001234-SBI",
+        "label": "SAFE",
+        "source": "own inbox",
+        "note": "genuine SBI UPI debit alert",
+        "verdict": "SCAM",
+        "reason": "This is a phishing attempt. They are trying to trick you into giving them your UPI details and money. Don't respond to any requests.",
+        "action": "Don't respond. Block the number and report it to SBI.",
+        "seconds": 9.15
+      }
+    ]
+  }
+}
