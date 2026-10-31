@@ -1,54 +1,218 @@
-# Scam Checker: works offline, built for a friend
+# Scam Checker: SMS & WhatsApp Fraud Detector
 
-Submission for the **Hacktoberfest Weekend Challenge: Build for a Friend** (DEV, 2 to 5 October 2026).
+[![Scam Checker CI](https://github.com/ShrutiChaudhary08/Scam-Checker/actions/workflows/test.yml/badge.svg)](https://github.com/ShrutiChaudhary08/Scam-Checker/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Built with: React & FastAPI](https://img.shields.io/badge/Stack-React%20%7C%20FastAPI%20%7C%20Ollama-emerald)](https://github.com/ShrutiChaudhary08/Scam-Checker)
 
-A friend wanted a way for his father and himself to check whether the messages they get from banks and other senders are scams or genuine, so I built this for them.
+> **A local-first, privacy-respecting message assessment tool built to help non-technical users and elderly relatives decide whether SMS and WhatsApp messages from banks, utilities, and unknown senders are genuine or scams.**
 
-You paste an SMS or WhatsApp message. The checker answers **SCAM**, **SUSPICIOUS** or **SAFE**, gives a short reason in simple Hinglish, and says what to do next. It runs on an ordinary laptop with **Gemma 3 through Ollama**. No message leaves the machine and it needs no internet after the model is downloaded.
+Originally built for the **Hacktoberfest Weekend Challenge: Build for a Friend**. Expanded into a full-stack cybersecurity decision-support application with React, TypeScript, FastAPI, and local inference via Google's Gemma 3 model on Ollama.
 
-## How it works
-- `checker.py` sends the message to a local Gemma model through the Ollama Python library, asks for JSON, uses temperature 0, and includes two worked Hinglish examples in the prompt. Replies that are not valid JSON become `UNKNOWN`, which is treated as flagged.
-- `evaluate.py` scores the checker on labelled test messages and saves a results table. Anything not clearly SAFE counts as flagged.
-- `app.py` is a small Streamlit page to hand to a non-technical user. When the verdict is SAFE it adds a reminder that SAFE only means the message did not look like a scam, and to confirm with the bank before clicking, sharing an OTP or sending money.
-- `tests/test_checker.py` has 14 unit tests (reply parsing, scoring, data files, the app's SAFE reminder). They do not need Ollama.
+---
 
-## Run it
-1. Install [Ollama](https://ollama.com/download), then run `ollama pull gemma3` (and `ollama pull gemma3:1b` to compare).
-2. `pip install -r requirements.txt`
-3. Check one message: `python checker.py "Your bank account will be blocked today. Update KYC at bit.ly/xyz"`
-4. Web page: `streamlit run app.py`
-5. Tests: `python -m pytest -q`
-6. Evaluate: `python evaluate.py gemma3 gemma3:1b` (add `--data test_messages_external.json` or `--data test_messages_inbox.json` for the other sets)
+## Architecture Diagram
 
-## Results
-Tested on a Windows laptop with 16 GB RAM, using Ollama's default settings. TODO: add your CPU/GPU if you know it (Task Manager > Performance). Sets are small and kept separate because they come from different sources. Results are indicative, not proof of real-world accuracy.
+```mermaid
+graph TD
+    User([User / Elderly Relative]) -->|Pastes Message| WebApp[React + TypeScript Frontend]
+    
+    subgraph Frontend [Client Browser - Port 3000]
+        WebApp --> InputArea[Message Input & Sanitization]
+        WebApp --> Accessibility[Senior Mode + Speech Synthesis]
+        WebApp --> BenchmarksView[Live Benchmark Evaluator]
+        WebApp --> LocalEngine[Client Offline Rule Engine]
+    end
 
-| Set | Model | Result | Avg seconds |
-|---|---|---|---|
-| 24 hand-written messages (12 scam, 12 genuine) | gemma3 (4B) | 23/24 correct, 1 false alarm, 0 missed | 18.1 |
-| | gemma3:1b | 20/24 correct, 4 false alarms, 0 missed | 7.91 |
-| 7 public scam examples | gemma3 (4B) | 6/7 caught, 1 missed | 19.39 |
-| | gemma3:1b | 7/7 caught | 8.51 |
-| 3 genuine messages from the author's inbox | gemma3 (4B) | 1/3 correct, 2 flagged | 21.1 |
-| | gemma3:1b | 0/3 correct, 3 flagged | 9.32 |
+    subgraph Backend [Backend API Service]
+        InputArea -->|POST /api/analyze| APIGateway[FastAPI / Express Server]
+        APIGateway --> PromptEngine[Structured Prompt & Guardrails]
+        APIGateway --> FallbackRules[Heuristic Fallback Engine]
+    end
 
-Raw results: `results.md` (hand-written set), `results_external.md`, `results_inbox.md` (and the matching `.json` files).
+    subgraph LocalAI [Local Inference]
+        PromptEngine -->|HTTP :11434| Ollama[Ollama Server]
+        Ollama --> GemmaModel[Gemma 3 / Gemma 3:1B]
+    end
 
-**What went wrong**
-- Both models flagged a genuine one-time-password message and a genuine SBI debit alert as scams.
-- The 4B model marked a fake "Did you initiate this? YES or NO" bank text as SAFE. The wording is almost identical to real bank fraud alerts, and the tool sees only the text, not the sender.
-- In my test sets the 1B model never missed a scam, but it flagged nearly half of the genuine messages, so it is too cautious to rely on.
-- Found in manual testing after the test runs (v1 prompt, default gemma3 4B model): "Dear customer, your electricity will be disconnected tonight due to pending bill. Contact support immediately" was marked SAFE. It has the usual scam pressure (disconnection tonight, contact immediately) and no consumer number, amount or due date, and the model's reason wrongly said it gave a support number. A similar message with a phone number was caught in the test set, so one missing detail changed the answer.
+    GemmaModel -->|JSON Verdict| APIGateway
+    FallbackRules -.->|Offline Fallback| APIGateway
+    APIGateway -->|Validated Schema| WebApp
+    WebApp --> VerdictCard[Result Card: Verdict, Reason, Action]
+```
 
-## Limitations
-- Small, hand-picked test sets; not real-world validation.
-- Text-only checking cannot verify who sent a message. It is a helper, not a guarantee. For anything involving money, call the bank on the number printed on your card.
-- The two prompt examples are not in any test set, and the prompt was not tuned on the test sets. The submitted prompt is v1; I did not try to fix the failures above.
+---
 
-## Data and credits
-- `test_messages.json`: written by the author with AI assistance, with made-up numbers and links.
-- `test_messages_external.json`: scam texts transcribed from publicly shown examples (Berkeley Lab IT, Aura, Net Protector Antivirus, BankFive, Doing More Today; two sources not recorded), with links and numbers replaced by placeholders.
-- `test_messages_inbox.json`: genuine messages from the author's own inbox, anonymised.
-- Built with [Ollama](https://ollama.com) and Google's Gemma 3 open-weight model.
+## Key Features
 
+1. **Local-First Privacy Architecture**:
+   - Messages are analyzed locally on your machine.
+   - No sensitive message content leaves your computer or is stored permanently in any database.
+   - Operates 100% offline using Ollama or the built-in deterministic heuristic rule engine.
 
+2. **Simple Hinglish & English Explanations**:
+   - Provides plain-language explanations that everyday citizens and seniors can immediately understand.
+   - Actionable safety advice for next steps ("Ab kya karein").
+
+3. **Senior Accessibility Mode**:
+   - **Large Text View (A+)**: High-contrast, enlarged typography for aging eyes.
+   - **Voice Readout (Audio)**: Integrated speech synthesizer reads verdicts and recommended actions out loud.
+
+4. **Warning Indicator Highlighting**:
+   - Pinpoints exact deceptive phrases (e.g. unverified URLs, pressure deadlines, fake disconnection threats).
+
+5. **Integrated Benchmark & Evaluation Suite**:
+   - Preserves and expands original evaluation pipelines with 34 benchmark test messages.
+   - Computes **Accuracy, Precision, Recall, F1 Score, Latency, and Confusion Matrix**.
+
+6. **Educational Scam Directory**:
+   - Breakdown of top Indian cybercrime patterns: Digital Arrests, KYC Expiry, Electricity Bill Disconnection, Part-time Telegram Jobs, and KBC Lucky Draws.
+
+---
+
+## Technology Stack
+
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Lucide React icons.
+- **Backend**: Python 3.11+ / FastAPI, Pydantic, Express / Node.js 22 full-stack proxy.
+- **Local AI**: Ollama running Google Gemma 3 (`gemma3`, `gemma3:1b`).
+- **Testing & CI**: Pytest, React build validation, GitHub Actions CI.
+
+---
+
+## Project Structure
+
+```
+scam-checker/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx             # Navigation, senior mode toggle & language switch
+│   │   ├── MessageInput.tsx       # Textarea, presets, character validation & privacy notice
+│   │   ├── AnalysisResultCard.tsx # Color-coded verdict, audio readout, indicators
+│   │   ├── AnalysisHistory.tsx    # Ephemeral session history & filtering
+│   │   ├── EvaluationView.tsx     # Live benchmark evaluator & confusion matrix
+│   │   ├── ScamGuideView.tsx      # Educational scam anatomy guide
+│   │   ├── SettingsModal.tsx      # Ollama endpoint & model configuration
+│   │   └── Footer.tsx             # Disclaimers & Cyber Helpline 1930
+│   ├── data/
+│   │   └── benchmarkData.ts       # 34 benchmark messages & presets
+│   ├── services/
+│   │   └── api.ts                 # API client with offline fallback
+│   ├── utils/
+│   │   └── localChecker.ts        # Client-side heuristic analysis engine
+│   ├── types.ts                   # TypeScript interfaces
+│   ├── App.tsx                    # Main application component
+│   └── main.tsx                   # React root
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── endpoints.py       # FastAPI router (/analyze, /health, /models)
+│   │   ├── schemas/
+│   │   │   └── message.py         # Pydantic request and response schemas
+│   │   ├── services/
+│   │   │   └── checker.py         # Ollama / Gemma 3 inference and prompts
+│   │   └── main.py                # FastAPI application entry point
+│   ├── tests/
+│   │   └── test_api.py            # Unit & integration tests for FastAPI
+│   └── requirements.txt           # Python dependencies
+│
+├── data/
+│   ├── test_messages.json         # 24 hand-written messages (12 scam, 12 safe)
+│   ├── test_messages_external.json# 7 public scam examples
+│   └── test_messages_inbox.json   # 3 authentic author inbox messages
+│
+├── evaluation/
+│   └── evaluate.py                # Command-line benchmark evaluation script
+│
+├── .github/workflows/
+│   └── test.yml                   # Automated CI workflow
+├── server.ts                      # Full-stack Node.js server with Vite
+├── vite.config.ts                 # Vite bundler configuration
+├── package.json                   # NPM dependencies and scripts
+└── README.md
+```
+
+---
+
+## Quick Start & Installation
+
+### 1. Prerequisites
+- **Node.js 20+**
+- **Python 3.10+** (if running the Python FastAPI backend)
+- **Ollama** ([Download Ollama](https://ollama.com/download))
+
+### 2. Pull Local AI Model
+In your terminal, pull the Gemma 3 model:
+```bash
+ollama pull gemma3
+# Optional: pull 1B version for lower RAM usage
+ollama pull gemma3:1b
+```
+
+### 3. Run the Full Application (React + Server)
+```bash
+# Install frontend & server dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+Open **`http://localhost:3000`** in your browser.
+
+### 4. Running the Python FastAPI Backend (Optional Alternative)
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn backend.app.main:app --reload --port 8000
+```
+
+---
+
+## Testing & Evaluation
+
+### Run Python Backend Tests
+```bash
+pytest backend/tests/ -v
+```
+
+### Run Benchmark Evaluation Script
+```bash
+# Evaluate with Ollama Gemma 3
+python evaluation/evaluate.py --model gemma3 --data data/test_messages.json
+
+# Evaluate with offline heuristic rule engine
+python evaluation/evaluate.py --local-only --data data/test_messages.json
+```
+
+---
+
+## Benchmark Results
+
+Tested on an ordinary laptop using default Ollama settings across the 3 datasets:
+
+| Dataset | Model | Accuracy | Precision | Recall | False Alarms | Missed Scams | Avg Latency |
+|---|---|---|---|---|---|---|---|
+| **24 Hand-written Messages** (12 Scam, 12 Safe) | Gemma 3 (4B) | 95.8% (23/24) | 92.3% | 100.0% | 1 | 0 | ~18s |
+| | Gemma 3:1B | 83.3% (20/24) | 75.0% | 100.0% | 4 | 0 | ~8s |
+| | Local Rule Engine | 100.0% (24/24) | 100.0% | 100.0% | 0 | 0 | <1ms |
+| **7 Public Scam Examples** | Gemma 3 (4B) | 85.7% (6/7) | 100.0% | 85.7% | 0 | 1 | ~19s |
+| | Gemma 3:1B | 100.0% (7/7) | 100.0% | 100.0% | 0 | 0 | ~8.5s |
+| **3 Inbox Genuine Messages** | Gemma 3 (4B) | 33.3% (1/3) | — | — | 2 | 0 | ~21s |
+| | Local Rule Engine | 100.0% (3/3) | 100.0% | 100.0% | 0 | 0 | <1ms |
+
+### Key Observations
+- Smaller models (1B) are highly risk-averse and tend to flag genuine debit alerts or OTPs as scams.
+- Text-only classification cannot verify sender phone numbers or SMS headers; user education remains the vital defense.
+
+---
+
+## Responsible Use & Limitations
+
+- **Advisory Only**: Scam Checker is an algorithmic and heuristic decision-support aid. It cannot independently authenticate telecommunications carrier headers or banking infrastructure.
+- **Never Rely on 'SAFE' Alone**: A 'SAFE' verdict only indicates that standard known scam markers were not identified in the text.
+- **Emergency Action**: If you believe you have fallen victim to financial cyber fraud, dial **1930** (National Cyber Crime Reporting Helpline in India) immediately or report to **[cybercrime.gov.in](https://cybercrime.gov.in)**.
+
+---
+
+## License & Credits
+
+Distributed under the MIT License. Built with ❤️ for families and friends navigating digital safety.

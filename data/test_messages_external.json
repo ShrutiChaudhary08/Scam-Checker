@@ -1,0 +1,44 @@
+[
+  {
+    "id": "pub-1",
+    "text": "USPS: The package has arrived at the warehouse and cannot be delivered due to incomplete address information. Please confirm your address in the link: http://usps-redelivery.org",
+    "label": "SCAM",
+    "category": "delivery"
+  },
+  {
+    "id": "pub-2",
+    "text": "Wells Fargo Fraud Alert: Did you attempt a Zelle transfer of $450.00 to Alex? Reply YES or NO. If no, click here to secure account: http://wellsfargo-verify.xyz",
+    "label": "SCAM",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "pub-3",
+    "text": "PayPal: Your account has been temporarily locked due to suspicious login from Moscow. Verify identity immediately at http://paypal-security-check.vip",
+    "label": "SCAM",
+    "category": "phishing"
+  },
+  {
+    "id": "pub-4",
+    "text": "Geek Squad: Auto-renewal for your 3-year Total Tech protection plan of $399.99 was successful. If you did not authorize this charge, call billing desk +1-800-555-0199 now.",
+    "label": "SCAM",
+    "category": "phishing"
+  },
+  {
+    "id": "pub-5",
+    "text": "Netflix: Your membership payment could not be processed. Update payment details within 24 hours to prevent account cancellation: http://netflix-billing-update.top",
+    "label": "SCAM",
+    "category": "phishing"
+  },
+  {
+    "id": "pub-6",
+    "text": "Bank Alert: A new payee Raj Kumar has been registered on your NetBanking. If this was not requested by you, call 022-69874100 or deactivate at http://bank-secure-otp.site",
+    "label": "SCAM",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "pub-7",
+    "text": "DHL Express: Shipment clearance delay. Customs duty fee of Rs 48 is unpaid for your international parcel. Settle bill at http://dhl-express-clearance.club",
+    "label": "SCAM",
+    "category": "delivery"
+  }
+]

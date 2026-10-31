@@ -1,0 +1,8 @@
+{
+  "name": "Scam Checker - SMS & WhatsApp Fraud Detector",
+  "description": "Family-friendly scam and fraud checker for SMS and WhatsApp messages with simple Hinglish verdicts, explanations, safety tips, and evaluation benchmarks.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "permissions": []
+}

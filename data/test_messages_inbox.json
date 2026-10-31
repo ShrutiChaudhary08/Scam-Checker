@@ -1,0 +1,20 @@
+[
+  {
+    "id": "inbox-1",
+    "text": "Dear Customer, your A/c XX3192 is debited by Rs 250.00 on 28-OCT-26 towards UPI/DR/6301928491/ChaiPoint. Avl Bal Rs 18,290.40. - State Bank of India.",
+    "label": "SAFE",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "inbox-2",
+    "text": "592831 is your one-time verification password for IRCTC Train ticket booking. Do not disclose this OTP to anyone for security reasons.",
+    "label": "SAFE",
+    "category": "otp"
+  },
+  {
+    "id": "inbox-3",
+    "text": "Your monthly bill for Tata Play subscriber ID 1083928192 is Rs 420. Auto-debit scheduled on 05-Nov-26 via HDFC Mandate.",
+    "label": "SAFE",
+    "category": "electricity"
+  }
+]

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-canvas: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-subtle: #f1f5f9;
+    --text-primary: #172033;
+    --text-secondary: #64748b;
+    --border-subtle: #e2e8f0;
+    --accent-primary: #4263eb;
+    --accent-hover: #3655d9;
+  }
+
+  .dark {
+    --bg-canvas: #101522;
+    --bg-surface: #192234;
+    --bg-surface-subtle: #202c40;
+    --text-primary: #f1f5f9;
+    --text-secondary: #a0aec0;
+    --border-subtle: #2a3854;
+    --accent-primary: #7c9aff;
+    --accent-hover: #94aeff;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Subtle cybersecurity scan pulse */
+@keyframes scan-radar {
+  0% { transform: scale(0.96); opacity: 0.4; }
+  50% { transform: scale(1.02); opacity: 0.9; }
+  100% { transform: scale(0.96); opacity: 0.4; }
+}
+
+.animate-scan-radar {
+  animation: scan-radar 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}

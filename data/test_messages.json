@@ -1,0 +1,146 @@
+[
+  {
+    "id": "hw-1",
+    "text": "Dear customer, your SBI YONO account has been suspended due to pending PAN card verification. Update now at http://sbi-pan-update.top to prevent permanent block.",
+    "label": "SCAM",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "hw-2",
+    "text": "Dear Customer, your electricity power will be disconnected tonight at 9:30 PM from the electricity office because your previous month bill was not updated. Please immediately contact our electricity officer at 9876543210. Thank you.",
+    "label": "SCAM",
+    "category": "electricity"
+  },
+  {
+    "id": "hw-3",
+    "text": "Congratulations! You have won Rs 25,00,000 in Kaun Banega Crorepati WhatsApp Lucky Draw 2026. Send photo of Aadhaar and Rs 1,500 file charges to WhatsApp number +91-9123456789 to claim your cheque.",
+    "label": "SCAM",
+    "category": "lottery"
+  },
+  {
+    "id": "hw-4",
+    "text": "Earn Rs 3000 to 5000 daily working from home! Simple YouTube video like and subscribe tasks. No investment needed. Contact manager on Telegram @EarnDaily_HR.",
+    "label": "SCAM",
+    "category": "job"
+  },
+  {
+    "id": "hw-5",
+    "text": "Mumbai Customs Alert: A parcel sent to your name containing narcotics and 5 passports has been seized. Digital arrest warrant issued by CBI. Join urgent Skype video call http://cbi-investigation-desk.site immediately.",
+    "label": "SCAM",
+    "category": "digital-arrest"
+  },
+  {
+    "id": "hw-6",
+    "text": "Your ICICI credit card reward points worth Rs 9,850 are expiring today! Redeem your cash directly into bank account now by clicking http://icici-reward-claim.online",
+    "label": "SCAM",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "hw-7",
+    "text": "Urgent: To process your pending income tax refund of Rs 14,350, install QuickSupport / AnyDesk app and share 9 digit code with Tax Officer on 8989898989.",
+    "label": "SCAM",
+    "category": "phishing"
+  },
+  {
+    "id": "hw-8",
+    "text": "Dear User, your SIM card will be deactivated in 24 hours as biometric KYC is incomplete. Call Airtel customer verification desk 9123400000 or click http://airtel-biometric.xyz",
+    "label": "SCAM",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "hw-9",
+    "text": "Traffic Police E-Challan Notice: Pending fine of Rs 2,000 for vehicle overspeeding. Court summon will be sent. Pay immediately via http://echallan-parivahan.vip",
+    "label": "SCAM",
+    "category": "phishing"
+  },
+  {
+    "id": "hw-10",
+    "text": "HDFC Alert: Your NetBanking password will expire today. To continue hassle-free banking, please verify your details at http://netbanking-hdfc-renew.site",
+    "label": "SCAM",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "hw-11",
+    "text": "Special offer! Pre-approved personal loan of Rs 5,00,000 at 1% interest rate without CIBIL score. Download LoanMitra.apk from http://loan-mitra.link to get money in 5 minutes.",
+    "label": "SCAM",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "hw-12",
+    "text": "Courier delivery failed: Address incomplete for package #IN983421. Pay re-delivery fee of Rs 5 via http://indlapost-tracking.link to reschedule delivery.",
+    "label": "SCAM",
+    "category": "delivery"
+  },
+  {
+    "id": "hw-13",
+    "text": "Dear Customer, Rs 1,450.00 debited from A/c XX4091 on 15-Oct-26 at DMART SUPERMARKET. Avl Bal: Rs 42,390.50. Call 1800112211 if not done by you - SBI.",
+    "label": "SAFE",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "hw-14",
+    "text": "849201 is your OTP for login on Tata Neu. Valid for 5 minutes. Do not share OTP with anyone, including customer care executives.",
+    "label": "SAFE",
+    "category": "otp"
+  },
+  {
+    "id": "hw-15",
+    "text": "Your Swiggy order from Biryani Blues is out for delivery. Delivery partner Ravi will reach your location in approximately 12 mins.",
+    "label": "SAFE",
+    "category": "delivery"
+  },
+  {
+    "id": "hw-16",
+    "text": "Your electricity bill of Rs 1,840 for Consumer No 0492817293 is generated. Due date is 25-Oct-26. Pay via BESCOM consumer portal or official app.",
+    "label": "SAFE",
+    "category": "electricity"
+  },
+  {
+    "id": "hw-17",
+    "text": "Papa, main train me baith gaya hoon. 8:30 baje tak New Delhi station pahunch jaunga. Aap station mat aana, main auto le kar ghar aa jaunga.",
+    "label": "SAFE",
+    "category": "family"
+  },
+  {
+    "id": "hw-18",
+    "text": "Amazon: Package with tracking ID 492019482 will be delivered today by 7 PM. Please keep OTP ready: 4928.",
+    "label": "SAFE",
+    "category": "delivery"
+  },
+  {
+    "id": "hw-19",
+    "text": "Salary of Rs 68,500.00 credited to your HDFC Bank A/c XX8271 on 30-Oct-26 by INFOSYS LTD. Total balance Rs 94,120.00.",
+    "label": "SAFE",
+    "category": "bank-kyc"
+  },
+  {
+    "id": "hw-20",
+    "text": "Appointment reminder: Dr. Sharma consultation confirmed for tomorrow 11:00 AM at Apollo Clinic, Indiranagar.",
+    "label": "SAFE",
+    "category": "delivery"
+  },
+  {
+    "id": "hw-21",
+    "text": "Your Airtel mobile plan for 98XXXX1234 will expire in 3 days on 02-Nov-26. Recharge on Airtel Thanks App to continue uninterrupted service.",
+    "label": "SAFE",
+    "category": "electricity"
+  },
+  {
+    "id": "hw-22",
+    "text": "Maa, aaj shaam ko thoda late ho jaunga office me presentation hai. Aap dinner 8 baje kar lena, wait mat karna.",
+    "label": "SAFE",
+    "category": "family"
+  },
+  {
+    "id": "hw-23",
+    "text": "Flipkart: Your order for Cotton Bedsheet has been dispatched via Ecom Express. Expected delivery Tuesday.",
+    "label": "SAFE",
+    "category": "delivery"
+  },
+  {
+    "id": "hw-24",
+    "text": "Dear Customer, interest of Rs 342 credited to your Savings A/c XX1902 for Q2. Net balance Rs 31,402. - Punjab National Bank.",
+    "label": "SAFE",
+    "category": "bank-kyc"
+  }
+]
